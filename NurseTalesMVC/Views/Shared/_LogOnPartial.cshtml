@@ -1,0 +1,14 @@
+﻿<p>
+    <div id="logon-text">
+        @if (Request.IsAuthenticated)
+        {
+            <text>Welcome <strong>@User.Identity.Name</strong>! 
+            @(User.IsInRole("Administrator") ? "(Administrator)" : String.Empty) 
+            [ @Html.ActionLink("Log Off", MVC.Account.LogOff()) ]</text>
+        }
+        else
+        {
+            @:[ @Html.ActionLink("Log On", MVC.Account.LogOn()) ]
+            }
+    </div>
+</p>
